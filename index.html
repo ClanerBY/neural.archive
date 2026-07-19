@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEURAL.ARCHIVE // Каталог нейросетей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="hero">
+  <canvas id="netCanvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="boot-line" id="bootLine">&gt; ИНИЦИАЛИЗАЦИЯ АРХИВА...</p>
+    <h1 class="glitch" data-text="NEURAL.ARCHIVE">NEURAL.ARCHIVE</h1>
+    <p class="hero-sub">Живая карта нейросетей и AI-инструментов. Текст, изображения, видео, звук, код — всё, что сейчас строит цифровой мир.</p>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-num" id="statTotal">000</span>
+        <span class="stat-label">узлов в архиве</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statCats">00</span>
+        <span class="stat-label">категорий</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statShown">000</span>
+        <span class="stat-label">сейчас видно</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade"></div>
+</header>
+
+<main>
+  <section class="control-panel" id="controlPanel">
+    <div class="search-wrap">
+      <span class="search-prompt">grep --node</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="название или задача…" autocomplete="off">
+      <span class="search-cursor" aria-hidden="true"></span>
+    </div>
+
+    <div class="chip-row" id="chipRow" role="group" aria-label="Фильтр по категориям">
+      <!-- chips injected by JS -->
+    </div>
+  </section>
+
+  <section class="archive" id="archive">
+    <!-- cards injected by JS -->
+  </section>
+
+  <p class="empty-state" id="emptyState" hidden>[ НИЧЕГО НЕ НАЙДЕНО ] — измени запрос или сбрось фильтр</p>
+</main>
+
+<footer class="site-footer">
+  <p>NEURAL.ARCHIVE — собрано вручную · ссылки ведут на официальные сайты сервисов · v1.0</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
