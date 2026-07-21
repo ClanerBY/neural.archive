@@ -386,8 +386,8 @@ function initNetCanvas(){
 function initGoatCounter(){
   const el = document.getElementById("goatCount");
   if(!el) return;
-  <script data-goatcounter="https://neural-archive.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>; // <-- замени на свой код с goatcounter.com
+   const site = "neural-archive"; // сайт-код с goatcounter.com
+   
   const path = encodeURIComponent(location.pathname || "/");
 
   fetch(`https://${site}.goatcounter.com/counter/${path}.json`)
