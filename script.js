@@ -379,9 +379,32 @@ function initNetCanvas(){
 }
 
 /* ==========================================================
+   GoatCounter — live view count in the footer (optional)
+   Requires "Allow adding visitor counts on your website"
+   enabled in your GoatCounter site settings.
+   ========================================================== */
+function initGoatCounter(){
+  const el = document.getElementById("goatCount");
+  if(!el) return;
+  <script data-goatcounter="https://neural-archive.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>; // <-- замени на свой код с goatcounter.com
+  const path = encodeURIComponent(location.pathname || "/");
+
+  fetch(`https://${site}.goatcounter.com/counter/${path}.json`)
+    .then(r => { if(!r.ok) throw new Error("no data"); return r.json(); })
+    .then(data => {
+      const count = data.count_unique ?? data.count;
+      if(count) el.textContent = `Просмотров страницы: ${count}`;
+      else el.remove();
+    })
+    .catch(() => el.remove());
+}
+
+/* ==========================================================
    Init
    ========================================================== */
 buildChips();
 initStats();
 render();
 initNetCanvas();
+initGoatCounter();
